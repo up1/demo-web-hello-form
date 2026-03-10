@@ -37,9 +37,9 @@ function App() {
 
   return (
     <div className="container">
-      <label id="welcome_message" htmlFor="hello_message" className="welcome-label">
+      <div id="welcome_message" aria-label="welcome_message" className="welcome-label">
         {username ? `Hello, ${username}` : 'Welcome'}
-      </label>
+      </div>
 
       <div className="form-group">
         <input
