@@ -41,7 +41,7 @@ function App() {
         {username ? `Hello, ${username}` : 'Welcome'}
       </label>
 
-      <div className="form-group">``
+      <div className="form-group">
         <input
           id="hello_message"
           aria-label="hello_message"
