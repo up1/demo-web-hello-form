@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="container">
-      <label id="welcome_message" htmlFor="welcome_message2" className="welcome-label">
+      <label htmlFor="welcome_message" className="welcome-label">
         {username ? `Hello, ${username}` : 'Welcome'}
       </label>
 
