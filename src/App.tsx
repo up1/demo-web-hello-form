@@ -37,20 +37,20 @@ function App() {
 
   return (
     <div className="container">
-      <label id="welcome_message" htmlFor="welcome_message" className="welcome-label">
+      <label id="welcome_message" aria-label="welcome_message" className="welcome-label">
         {username ? `Hello, ${username}` : 'Welcome'}
       </label>
 
-      <div className="form-group">
+      <div className="form-group">``
         <input
           id="hello_message"
-          name='hello_message'
+          aria-label="hello_message"
           type="text"
           placeholder="Enter your message"
           value={helloMessage}
           onChange={(e) => setHelloMessage(e.target.value)}
         />
-        <button id="sent_button" name="sent_button" onClick={handleSent}>
+        <button id="sent_button" aria-label="sent_button" onClick={handleSent}>
           Sent
         </button>
       </div>
