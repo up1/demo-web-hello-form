@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="container">
-      <label id="welcome_message" aria-label="welcome_message" className="welcome-label">
+      <label id="welcome_message" htmlFor="welcome_message" className="welcome-label">
         {username ? `Hello, ${username}` : 'Welcome'}
       </label>
 
