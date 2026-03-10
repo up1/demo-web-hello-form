@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="container">
-      <div id="welcome_message" aria-label="welcome_message" className="welcome-label">
+      <div id="welcome_message" aria-label="welcome_message" role='article' className="welcome-label">
         {username ? `Hello, ${username}` : 'Welcome'}
       </div>
 
