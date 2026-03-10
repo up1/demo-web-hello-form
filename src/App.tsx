@@ -1,10 +1,20 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
+interface FlutterChannel {
+  postMessage(message: string): void
+}
+
 declare global {
   interface Window {
     receiveUsername?: (username: string) => void
+    webkit?: {
+      messageHandlers: {
+        FlutterChannel?: FlutterChannel
+      }
+    }
   }
+  var FlutterChannel: FlutterChannel | undefined
 }
 
 function App() {
@@ -18,17 +28,10 @@ function App() {
   }, [])
 
   const handleSent = () => {
-    try {
-      // Flutter WebView Android
-      (window as any).FlutterChannel?.postMessage(helloMessage)
-    } catch {
-      // ignore
-    }
-    try {
-      // Flutter WebView iOS
-      ;(window as any).webkit?.messageHandlers?.FlutterChannel?.postMessage(helloMessage)
-    } catch {
-      // ignore
+    if (typeof FlutterChannel !== 'undefined') {
+      FlutterChannel.postMessage(helloMessage);
+    } else if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.FlutterChannel) {
+      window.webkit.messageHandlers.FlutterChannel.postMessage(helloMessage);
     }
   }
 
